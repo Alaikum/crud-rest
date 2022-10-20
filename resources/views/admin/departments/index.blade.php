@@ -4,7 +4,7 @@
     <section>
         <div class="container" style="display: flex; justify-content:flex-end;">
             
-                <a href="{{ route('departments.create') }}">Aggiungi Dipartimento</a>
+                <a href="{{ route('admin.departments.create') }}">Aggiungi Dipartimento</a>
           
         </div>
     </section>
@@ -30,7 +30,7 @@
                         <td>{{ $d->id }}</td>
                         <td>
                             {{-- laravel prende $d e lo trova da solo da chiave  --}}
-                            <a href="{{ route('departments.show', $d) }}">
+                            <a href="{{ route('admin.departments.show', $d) }}">
                                 {{ $d->name }}
                             </a>
                         </td>
@@ -39,8 +39,8 @@
                         <td>{{ $d->email }}</td>
                         <td>{{ $d->website }}</td>
                         <td>{{ $d->head_of_department }}</td>
-                        <td><a href="{{route('departments.edit', $d)}}">Modifica</a></td>
-                       <td> <form action="{{route('departments.destroy', $d)}}" method="POST">
+                        <td><a href="{{route('admin.departments.edit', $d)}}">Modifica</a></td>
+                       <td> <form action="{{route('admin.departments.destroy', $d)}}" method="POST">
                         @csrf
                         @method('DELETE')
                         <input type="submit" value="Elimina">

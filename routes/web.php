@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 })->name('homepage');
 
 //Department con CRUD
@@ -47,5 +47,15 @@ Route::get('/', function () {
 // Route::delete('/departments/{id}','DepartmentController@delete')->name('departments.destroy');
 
 // TUTTE LE ROTTE PRECEDENTI RICREATE CON QUEST RIGA
-Route::resource('departments','DepartmentController');
+// Route::resource('departments','DepartmentController');
 Route::resource('students','StudentController');
+
+Auth::routes();
+// Auth::routes(['register'=>false]);  toglie la possobilita di registrarsi
+
+Route::middleware('auth')->prefix('admin')->name('admin.')->namespace('Admin')->group(function(){
+
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('departments','DepartmentController');
+});
+

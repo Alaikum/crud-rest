@@ -6,14 +6,12 @@
             <h2>Crea un nuovo Dipartimento</h2>
         </div>
         <div class="container">
-            {{-- non li mando nello store   --}}
-            <form action="{{ route('departments.update',$department) }}" method="POST">
+            <form action="{{ route('admin.departments.store') }}" method="POST">
                 @csrf
-                @method('PUT')
                 <p>
                     <label for="name">Nome</label>
                     {{-- BORDO ROSSO CON ERORRE  --}}
-                    <input type="text" style=" @error('name') border-color:red @enderror" name='name' value="{{old('name',$department->name)}}" id='name'
+                    <input type="text" style=" @error('name') border-color:red @enderror" name='name' value="{{ old('name')}}" id='name'
                         placeholder="Nome Dipartimento">
 
                     {{-- MESSAGGIO DI ERRORE VICINO ALL INPUT CHE GENERA ERRORE  --}}
@@ -24,24 +22,24 @@
                 </p>
                 <p>
                     <label for="head-of-department">Capo Di Dipartimento</label>
-                    <input type="text" name='head_of_department'value="{{$department->head_of_department}}" id='head_of_department'
+                    <input type="text" name='head_of_department' id='head_of_department'
                         placeholder="Nome Capo Dipartimento">
                 </p>
                 <p>
                     <label for="email">email</label>
-                    <input type="email" name='email' value="{{$department->email}}" id='email' placeholder="Email">
+                    <input type="email" name='email' id='email' placeholder="Email">
                 </p>
                 <p>
                     <label for="address">Indiritto</label>
-                    <input type="text" name='address' id='address' value="{{$department->address}}" placeholder="Indirizzo Dipartimento">
+                    <input type="text" name='address' id='address' placeholder="Indirizzo Dipartimento">
                 </p>
                 <p>
                     <label for="phone">Telefono</label>
-                    <input type="tel" name='phone' id='phone' value="{{$department->phone}}" placeholder="Numero del Dipartimento">
+                    <input type="tel" name='phone' id='phone' placeholder="Numero del Dipartimento">
                 </p>
                 <p>
                     <label for="website">Sito Web</label>
-                    <input type="text" name='website' id='website' value="{{$department->website}}" placeholder="Sito Web Del Dipartimento">
+                    <input type="text" name='website' id='website' placeholder="Sito Web Del Dipartimento">
                 </p>
                 <p>
                     <input type="submit" value="salva">

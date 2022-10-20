@@ -21,8 +21,8 @@
                     <span>Sito:</span>{{$department->website}}
                 </li>
                 <li>
-                    <a href="{{route('departments.edit', $department)}}">Modifica Dipartimento</a>
-                   <form action="{{route('departments.destroy', $department)}}" method="POST">
+                    <a href="{{route('admin.departments.edit', $department)}}">Modifica Dipartimento</a>
+                   <form action="{{route('admin.departments.destroy', $department)}}" method="POST">
                     @csrf
                     @method('DELETE')
                     <input type="submit" value="Elimina">
